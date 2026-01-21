@@ -5,7 +5,7 @@
 #include "spdlog/spdlog.h"
 #include <spdlog/fmt/fmt.h> // Ensure this is included
 namespace Trail {
-	class TRL_API Log
+	class   Log
 	{
 	public:
 		static void Init();

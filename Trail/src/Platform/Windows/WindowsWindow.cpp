@@ -34,10 +34,12 @@ namespace Trail {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		glfwSwapInterval(1);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		TRL_CORE_ASSERT(status, "Failed to initialize Glad");
-		glfwSetWindowUserPointer(m_Window, &m_Data);
-		SetVSync(true);
+		glfwSetWindowUserPointer(m_Window, &m_Data); //we need to reference the WindowData struct because it's the only way for us to access that window data inside callbacks
+		TRL_INFO("OpenGl GPU : {0} , {1}", (const char*)glGetString(GL_VENDOR), (const char*)glGetString(GL_RENDERER));
+		
 
 
 
@@ -45,8 +47,6 @@ namespace Trail {
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height){
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			
-			
 			data.Width = width;
 			data.Height = height;
 
@@ -61,9 +61,7 @@ namespace Trail {
 		});
 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods){
-			//GLFW keycode system is only specific to glfw, we want to convert it later to a custom keycode system to make it platform independent
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
 
 			switch (action)
 			{
@@ -86,15 +84,12 @@ namespace Trail {
 			}
 		});
 		glfwSetCharCallback(m_Window, [](GLFWwindow* window,unsigned int keycode) {
-			//GLFW keycode system is only specific to glfw, we want to convert it later to a custom keycode system to make it platform independent
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			KeyTypedEvent event((int)keycode);
 			data.EventCallback(event);
 			});
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {
-			//GLFW keycode system is only specific to glfw, we want to convert it later to a custom keycode system to make it platform independent
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
 			switch (action)
 			{
 				case GLFW_PRESS: {
@@ -130,17 +125,15 @@ namespace Trail {
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	void WindowsWindow::SetVSync(bool enabled) {
-		if(enabled) //VSync just means that we want the GPU to wait for a frame to be rendered before rendering a new frame
-			//if we put a swap interval it'll wait that interval amount of frames before rendering a new one
-			//not having an interval will just put the VSync off
+		if(enabled) 
 			glfwSwapInterval(1);
 		else
 			glfwSwapInterval(0);
 
-		m_Data.VSync = enabled; //keeping track of the state of the VSYnc
+		m_Data.VSync = enabled; 
 	}
 	bool WindowsWindow::IsVSync() const {
-		return m_Data.VSync; //return the state of the VSync
+		return m_Data.VSync; 
 	}
 
 }

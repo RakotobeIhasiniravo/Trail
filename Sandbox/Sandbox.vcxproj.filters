@@ -1,22 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="assets">
+      <UniqueIdentifier>{583885F2-44DA-AFC8-2D95-C31C19D63619}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="assets\Sounds">
+      <UniqueIdentifier>{8362BFD3-EF22-3B0A-B85D-848724DD7FE6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="assets\Textures">
+      <UniqueIdentifier>{2BED12B3-9778-8077-A089-036C0C94DC77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\SandboxApp.cpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="TetriBoard.h" />
+    <ClInclude Include="src\SandBox2D.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TetriBoard.cpp" />
+    <ClCompile Include="src\SandBox2D.cpp">
+      <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\SandboxApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Sounds\start.mp3">
+      <Filter>assets\Sounds</Filter>
+    </None>
+    <None Include="assets\Shaders\baseShader.glsl" />
+    <None Include="assets\Shaders\flatColorShader.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\Textures\KCLogo.png">
+      <Filter>assets\Textures</Filter>
+    </Image>
+    <Image Include="assets\Textures\KCLogoB.png">
+      <Filter>assets\Textures</Filter>
+    </Image>
+    <Image Include="assets\Textures\rainbow.png">
+      <Filter>assets\Textures</Filter>
+    </Image>
+    <Image Include="assets\Shaders\WhitePixel.png" />
+    <Image Include="assets\Textures\tetriblock.png" />
+    <Image Include="assets\Textures\tetris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\Textures\Roboto.ttf" />
+    <Font Include="assets\Textures\Lav.ttf" />
   </ItemGroup>
 </Project>

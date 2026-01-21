@@ -14,7 +14,7 @@ namespace Trail {
 			: Title(title), Height(height), Width(width) {}
 	};
 
-	class TRL_API Window {//Interface representing a desktop system based window
+	class Window{//Interface representing a desktop system based window
 	public: 
 		using EventCallbackFn = std::function<void(Event&)>;//explain this
 

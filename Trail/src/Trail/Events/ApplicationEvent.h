@@ -2,7 +2,7 @@
 #include "Event.h"
 #include <sstream>
 namespace Trail {
-	class TRL_API WindowResizeEvent : public Event {
+	class WindowResizeEvent : public Event {
 	public: 
 		WindowResizeEvent(unsigned int width, unsigned int height) : m_Width(width), m_Height(height) {}
 			 
@@ -20,7 +20,7 @@ namespace Trail {
 	private: 
 		unsigned int m_Width, m_Height;
 	};
-	class TRL_API WindowCloseEvent : public Event {
+	class WindowCloseEvent : public Event {
 	public:
 		WindowCloseEvent() {}
 		EVENT_CLASS_TYPE(WindowClose)
@@ -32,19 +32,19 @@ namespace Trail {
 	//to be decided later because Ticks, Updates and Renders are the staple of the execution of an engine, 
 	//so it's to be decided if those 3 should be implemented directly into the codebase without the need to call them as events 
 	//and dispatch them 
-	/*class TRL_API AppTickEvent : public Event {
+	/*class   AppTickEvent : public Event {
 	public:
 		AppTickEvent() {}
 		EVENT_CLASS_TYPE(AppTick)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
-	class TRL_API AppUpdateEvent : public Event {
+	class   AppUpdateEvent : public Event {
 	public:
 		AppUpdateEvent() {}
 		EVENT_CLASS_TYPE(AppUpdate)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
-	class TRL_API AppRenderEvent : public Event {
+	class   AppRenderEvent : public Event {
 	public:
 		AppRenderEvent() {}
 		EVENT_CLASS_TYPE(AppRender)

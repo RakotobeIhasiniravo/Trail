@@ -7,3 +7,12 @@
 [submodule "Trail/vendor/imgui"]
 	path = Trail/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Trail/vendor/glm"]
+	path = Trail/vendor/glm
+	url = https://github.com/g-truc/glm
+[submodule "Trail/vendor/openal_soft"]
+	path = Trail/vendor/openal_soft
+	url = https://github.com/kcat/openal-soft
+[submodule "Trail/vendor/sndfile"]
+	path = Trail/vendor/sndfile
+	url = https://github.com/libsndfile/libsndfile

@@ -3,7 +3,7 @@
 #include <sstream>
 
 namespace Trail {
-	class TRL_API MouseMovedEvent : public Event {
+	class   MouseMovedEvent : public Event {
 	public:
 		MouseMovedEvent(float x, float y) : m_MouseX(x), m_MouseY(y) {}
 		inline float GetX() {return m_MouseX;}
@@ -22,7 +22,7 @@ namespace Trail {
 	private:
 		float m_MouseX, m_MouseY;
 	};
-	class TRL_API MouseScrolledEvent : public Event {
+	class   MouseScrolledEvent : public Event {
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset) : m_XOffset(xOffset), m_YOffset(yOffset){}
 		inline float GetXOffset() { return m_XOffset; }
@@ -40,7 +40,7 @@ namespace Trail {
 		float m_XOffset, m_YOffset;
 	};
 
-	class TRL_API MouseButtonEvent : public Event {
+	class   MouseButtonEvent : public Event {
 	public: 
 		inline int GetMouseButton() const { return m_Button; }
 
@@ -50,7 +50,7 @@ namespace Trail {
 
 		int m_Button;
 	};
-	class TRL_API MouseButtonPressedEvent : public MouseButtonEvent {
+	class   MouseButtonPressedEvent : public MouseButtonEvent {
 	public: 
 		MouseButtonPressedEvent(int button) : MouseButtonEvent(button) {}
 
@@ -61,7 +61,7 @@ namespace Trail {
 		}
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
-	class TRL_API MouseButtonReleasedEvent : public MouseButtonEvent {
+	class   MouseButtonReleasedEvent : public MouseButtonEvent {
 	public:
 		MouseButtonReleasedEvent(int button) : MouseButtonEvent(button) {}
 

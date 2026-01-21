@@ -29,7 +29,7 @@ namespace Trail {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override {return category;}
 
-	class TRL_API Event {
+	class   Event {
 		friend class EventDispatcher;
 	public:
 		virtual EventType GetEventType() const = 0;
@@ -47,15 +47,11 @@ namespace Trail {
 		using EventFn = std::function<bool(T&)>;
 	public:
 		EventDispatcher(Event& event) : m_Event(event) {
-			//when we get an unknown type event into the dispatcher, the dispatcher uses the function dispatch a bunch of times 
-			// cycling through all the event types, and when it finds the good type, it calls the function func that handles the
-			//event from the class of the event, taht function returns a boolean and that boolean will be the value of Handled
 		}
-
 		template<typename T>
 		bool Dispatch(EventFn<T> func) {
 			if (m_Event.GetEventType() == T::GetStaticType()) {
-				m_Event.Handled = func(*(T*)&m_Event); //search about how this works
+				m_Event.Handled = func(*(T*)&m_Event); 
 				return true;
 			}
 			return false;
